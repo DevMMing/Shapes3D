@@ -9,15 +9,15 @@ from matrix import *
 def add_box( points, x, y, z, width, height, depth ):
     add_edge(points,x,y,z,x+width,y,z)
     add_edge(points,x,y,z,x,y-height,z)
-    add_edge(points,x,y,z,x,y,z+depth)
-    add_edge(points,x+width,y,z,x+width,y,z+depth)
-    add_edge(points,x,y,z+depth,x+width,y,z+depth)
+    add_edge(points,x,y,z,x,y,z-depth)
+    add_edge(points,x+width,y,z,x+width,y,z-depth)
+    add_edge(points,x,y,z-depth,x+width,y,z-depth)
     add_edge(points,x,y-height,z,x+width,y-height,z)
-    add_edge(points,x+width,y-height,z,x+width,y-height,z+depth)
-    add_edge(points,x,y-height,z,x,y-height,z+depth)
-    add_edge(points,x,y-height,z+depth,x+width,y-height,z+depth)
-    add_edge(points,x,y,z+depth,x,y-height,z+depth)
-    add_edge(points,x+width,y,z+depth,x+width,y-height,z+depth)
+    add_edge(points,x+width,y-height,z,x+width,y-height,z-depth)
+    add_edge(points,x,y-height,z,x,y-height,z-depth)
+    add_edge(points,x,y-height,z-depth,x+width,y-height,z-depth)
+    add_edge(points,x,y,z-depth,x,y-height,z-depth)
+    add_edge(points,x+width,y,z-depth,x+width,y-height,z-depth)
     add_edge(points,x+width,y,z,x+width,y-height,z)
 
   # ====================
@@ -28,12 +28,12 @@ def add_box( points, x, y, z, width, height, depth ):
   # ====================
 def generate_sphere(cx, cy, cz, r, step ):
     step*=4
-    i=2*math.pi*step
+    i=0
     a=[]
     i_step=2*math.pi*step
     j_step=math.pi*step
     while i <=2*math.pi:
-        j=math.pi*step
+        j=0
         while j<=math.pi:
             x=r*math.cos(j)+cx
             y=r*math.sin(j)*math.cos(i) + cy
