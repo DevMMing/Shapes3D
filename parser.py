@@ -8,6 +8,7 @@ The file follows the following format:
      Every command is a single character that takes up a line
      Any command that requires arguments must have those arguments in the second line.
      The commands are as follows:
+          clear: clear the edge matrix and the screen
 
          sphere: add a sphere to the edge matrix -
                  takes 4 arguemnts (cx, cy, cz, r)
@@ -64,7 +65,10 @@ def parse_file( fname, edges, transform, screen, color ):
         if line in ARG_COMMANDS:
             c+= 1
             args = lines[c].strip().split(' ')
-        if line == 'sphere':
+        if line == 'clear':
+            screen = new_screen()
+            edges = []
+        elif line == 'sphere':
             add_sphere(edges,float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]),step)
         elif line == 'torus':
