@@ -67,7 +67,7 @@ def generate_torus( cx, cy, cz, r0, r1, step ):
     x=0
     y=0
     z=0
-    i_step=2*math.pi*step
+    i_step=16*math.pi*step
     j_step=8*math.pi*step
     while i <=2*math.pi:
         j=math.pi*step
